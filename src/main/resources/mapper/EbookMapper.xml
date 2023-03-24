@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, `name`, category1_id, category2_id, description, cover, doc_count, view_count, 
+    id, `name`, category1_id, category2_id, description, cover, doc_count, view_count,
     vote_count
   </sql>
   <select id="selectByExample" parameterType="com.jiawa.wiki.domain.EbookExample" resultMap="BaseResultMap">
@@ -80,7 +80,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from ebook
+    from hhb.ebook
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,33 +89,33 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
-    from ebook
+    from hhb.ebook
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from ebook
+    delete from hhb.ebook
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.jiawa.wiki.domain.EbookExample">
-    delete from ebook
+    delete from hhb.ebook
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.jiawa.wiki.domain.Ebook">
-    insert into ebook (id, `name`, category1_id, 
-      category2_id, description, cover, 
+    insert into hhb.ebook (id, `name`, category1_id,
+      category2_id, description, cover,
       doc_count, view_count, vote_count
       )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{category1Id,jdbcType=BIGINT}, 
-      #{category2Id,jdbcType=BIGINT}, #{description,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{category1Id,jdbcType=BIGINT},
+      #{category2Id,jdbcType=BIGINT}, #{description,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR},
       #{docCount,jdbcType=INTEGER}, #{viewCount,jdbcType=INTEGER}, #{voteCount,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.jiawa.wiki.domain.Ebook">
-    insert into ebook
+    insert into hhb.ebook
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -176,13 +176,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.jiawa.wiki.domain.EbookExample" resultType="java.lang.Long">
-    select count(*) from ebook
+    select count(*) from hhb.ebook
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update ebook
+    update hhb.ebook
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -217,7 +217,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update ebook
+    update hhb.ebook
     set id = #{record.id,jdbcType=BIGINT},
       `name` = #{record.name,jdbcType=VARCHAR},
       category1_id = #{record.category1Id,jdbcType=BIGINT},
@@ -232,7 +232,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.jiawa.wiki.domain.Ebook">
-    update ebook
+    update hhb.ebook
     <set>
       <if test="name != null">
         `name` = #{name,jdbcType=VARCHAR},
@@ -262,7 +262,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jiawa.wiki.domain.Ebook">
-    update ebook
+    update hhb.ebook
     set `name` = #{name,jdbcType=VARCHAR},
       category1_id = #{category1Id,jdbcType=BIGINT},
       category2_id = #{category2Id,jdbcType=BIGINT},

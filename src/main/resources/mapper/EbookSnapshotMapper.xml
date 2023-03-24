@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, ebook_id, `date`, view_count, vote_count, view_increase, vote_increase
+    id, ebook_id, date, view_count, vote_count, view_increase, vote_increase
   </sql>
   <select id="selectByExample" parameterType="com.jiawa.wiki.domain.EbookSnapshotExample" resultMap="BaseResultMap">
     select
@@ -77,7 +77,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from ebook_snapshot
+    from hhb.ebook_snapshot
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,31 +86,31 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
-    from ebook_snapshot
+    from hhb.ebook_snapshot
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from ebook_snapshot
+    delete from hhb.ebook_snapshot
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.jiawa.wiki.domain.EbookSnapshotExample">
-    delete from ebook_snapshot
+    delete from hhb.ebook_snapshot
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.jiawa.wiki.domain.EbookSnapshot">
-    insert into ebook_snapshot (id, ebook_id, `date`, 
-      view_count, vote_count, view_increase, 
+    insert into hhb.ebook_snapshot (id, ebook_id, date,
+      view_count, vote_count, view_increase,
       vote_increase)
-    values (#{id,jdbcType=BIGINT}, #{ebookId,jdbcType=BIGINT}, #{date,jdbcType=DATE}, 
-      #{viewCount,jdbcType=INTEGER}, #{voteCount,jdbcType=INTEGER}, #{viewIncrease,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{ebookId,jdbcType=BIGINT}, #{date,jdbcType=DATE},
+      #{viewCount,jdbcType=INTEGER}, #{voteCount,jdbcType=INTEGER}, #{viewIncrease,jdbcType=INTEGER},
       #{voteIncrease,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.jiawa.wiki.domain.EbookSnapshot">
-    insert into ebook_snapshot
+    insert into hhb.ebook_snapshot
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -119,7 +119,7 @@
         ebook_id,
       </if>
       <if test="date != null">
-        `date`,
+        date,
       </if>
       <if test="viewCount != null">
         view_count,
@@ -159,13 +159,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.jiawa.wiki.domain.EbookSnapshotExample" resultType="java.lang.Long">
-    select count(*) from ebook_snapshot
+    select count(*) from hhb.ebook_snapshot
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update ebook_snapshot
+    update hhb.ebook_snapshot
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -174,7 +174,7 @@
         ebook_id = #{record.ebookId,jdbcType=BIGINT},
       </if>
       <if test="record.date != null">
-        `date` = #{record.date,jdbcType=DATE},
+        date = #{record.date,jdbcType=DATE},
       </if>
       <if test="record.viewCount != null">
         view_count = #{record.viewCount,jdbcType=INTEGER},
@@ -194,10 +194,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update ebook_snapshot
+    update hhb.ebook_snapshot
     set id = #{record.id,jdbcType=BIGINT},
       ebook_id = #{record.ebookId,jdbcType=BIGINT},
-      `date` = #{record.date,jdbcType=DATE},
+      date = #{record.date,jdbcType=DATE},
       view_count = #{record.viewCount,jdbcType=INTEGER},
       vote_count = #{record.voteCount,jdbcType=INTEGER},
       view_increase = #{record.viewIncrease,jdbcType=INTEGER},
@@ -207,13 +207,13 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.jiawa.wiki.domain.EbookSnapshot">
-    update ebook_snapshot
+    update hhb.ebook_snapshot
     <set>
       <if test="ebookId != null">
         ebook_id = #{ebookId,jdbcType=BIGINT},
       </if>
       <if test="date != null">
-        `date` = #{date,jdbcType=DATE},
+        date = #{date,jdbcType=DATE},
       </if>
       <if test="viewCount != null">
         view_count = #{viewCount,jdbcType=INTEGER},
@@ -231,9 +231,9 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jiawa.wiki.domain.EbookSnapshot">
-    update ebook_snapshot
+    update hhb.ebook_snapshot
     set ebook_id = #{ebookId,jdbcType=BIGINT},
-      `date` = #{date,jdbcType=DATE},
+      date = #{date,jdbcType=DATE},
       view_count = #{viewCount,jdbcType=INTEGER},
       vote_count = #{voteCount,jdbcType=INTEGER},
       view_increase = #{viewIncrease,jdbcType=INTEGER},
