@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, parent, `name`, sort
+    id, parent, name, sort
   </sql>
   <select id="selectByExample" parameterType="com.jiawa.wiki.domain.CategoryExample" resultMap="BaseResultMap">
     select
@@ -74,7 +74,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from category
+    from hhb.category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -83,29 +83,29 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
-    from category
+    from hhb.category
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from category
+    delete from hhb.category
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.jiawa.wiki.domain.CategoryExample">
-    delete from category
+    delete from hhb.category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.jiawa.wiki.domain.Category">
-    insert into category (id, parent, `name`, 
+    insert into hhb.category (id, parent, name,
       sort)
-    values (#{id,jdbcType=BIGINT}, #{parent,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{parent,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
       #{sort,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.jiawa.wiki.domain.Category">
-    insert into category
+    insert into hhb.category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -114,7 +114,7 @@
         parent,
       </if>
       <if test="name != null">
-        `name`,
+        name,
       </if>
       <if test="sort != null">
         sort,
@@ -136,13 +136,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.jiawa.wiki.domain.CategoryExample" resultType="java.lang.Long">
-    select count(*) from category
+    select count(*) from hhb.category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update category
+    update hhb.category
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -151,7 +151,7 @@
         parent = #{record.parent,jdbcType=BIGINT},
       </if>
       <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.sort != null">
         sort = #{record.sort,jdbcType=INTEGER},
@@ -162,23 +162,23 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update category
+    update hhb.category
     set id = #{record.id,jdbcType=BIGINT},
       parent = #{record.parent,jdbcType=BIGINT},
-      `name` = #{record.name,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.jiawa.wiki.domain.Category">
-    update category
+    update hhb.category
     <set>
       <if test="parent != null">
         parent = #{parent,jdbcType=BIGINT},
       </if>
       <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="sort != null">
         sort = #{sort,jdbcType=INTEGER},
@@ -187,9 +187,9 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jiawa.wiki.domain.Category">
-    update category
+    update hhb.category
     set parent = #{parent,jdbcType=BIGINT},
-      `name` = #{name,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>

@@ -79,7 +79,7 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from content
+    from hhb.content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -93,7 +93,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from content
+    from hhb.content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -102,29 +102,29 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from content
+    from hhb.content
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from content
+    delete from hhb.content
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.jiawa.wiki.domain.ContentExample">
-    delete from content
+    delete from hhb.content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.jiawa.wiki.domain.Content">
-    insert into content (id, content)
+    insert into hhb.content (id, content)
     values (#{id,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jiawa.wiki.domain.Content">
-    insert into content
+    insert into hhb.content
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -143,13 +143,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.jiawa.wiki.domain.ContentExample" resultType="java.lang.Long">
-    select count(*) from content
+    select count(*) from hhb.content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update content
+    update hhb.content
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -163,7 +163,7 @@
     </if>
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
-    update content
+    update hhb.content
     set id = #{record.id,jdbcType=BIGINT},
       content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
@@ -171,14 +171,14 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update content
+    update hhb.content
     set id = #{record.id,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.jiawa.wiki.domain.Content">
-    update content
+    update hhb.content
     <set>
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
@@ -187,7 +187,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jiawa.wiki.domain.Content">
-    update content
+    update hhb.content
     set content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>

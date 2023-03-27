@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, `name`, category1_id, category2_id, description, cover, doc_count, view_count,
+    id, name, category1_id, category2_id, description, cover, doc_count, view_count,
     vote_count
   </sql>
   <select id="selectByExample" parameterType="com.jiawa.wiki.domain.EbookExample" resultMap="BaseResultMap">
@@ -105,7 +105,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jiawa.wiki.domain.Ebook">
-    insert into hhb.ebook (id, `name`, category1_id,
+    insert into hhb.ebook (id, name, category1_id,
       category2_id, description, cover,
       doc_count, view_count, vote_count
       )
@@ -121,7 +121,7 @@
         id,
       </if>
       <if test="name != null">
-        `name`,
+        name,
       </if>
       <if test="category1Id != null">
         category1_id,
@@ -188,7 +188,7 @@
         id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.category1Id != null">
         category1_id = #{record.category1Id,jdbcType=BIGINT},
@@ -219,7 +219,7 @@
   <update id="updateByExample" parameterType="map">
     update hhb.ebook
     set id = #{record.id,jdbcType=BIGINT},
-      `name` = #{record.name,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
       category1_id = #{record.category1Id,jdbcType=BIGINT},
       category2_id = #{record.category2Id,jdbcType=BIGINT},
       description = #{record.description,jdbcType=VARCHAR},
@@ -235,7 +235,7 @@
     update hhb.ebook
     <set>
       <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="category1Id != null">
         category1_id = #{category1Id,jdbcType=BIGINT},
@@ -263,7 +263,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jiawa.wiki.domain.Ebook">
     update hhb.ebook
-    set `name` = #{name,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       category1_id = #{category1Id,jdbcType=BIGINT},
       category2_id = #{category2Id,jdbcType=BIGINT},
       description = #{description,jdbcType=VARCHAR},

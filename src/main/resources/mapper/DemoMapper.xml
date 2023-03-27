@@ -64,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, `name`
+    id, name
   </sql>
   <select id="selectByExample" parameterType="com.jiawa.wiki.domain.DemoExample" resultMap="BaseResultMap">
     select
@@ -81,7 +81,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from demo
     where id = #{id,jdbcType=BIGINT}
@@ -97,7 +97,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jiawa.wiki.domain.Demo">
-    insert into demo (id, `name`)
+    insert into demo (id, name)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jiawa.wiki.domain.Demo">
@@ -107,7 +107,7 @@
         id,
       </if>
       <if test="name != null">
-        `name`,
+        name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -132,7 +132,7 @@
         id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.name != null">
-        `name` = #{record.name,jdbcType=VARCHAR},
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -142,7 +142,7 @@
   <update id="updateByExample" parameterType="map">
     update demo
     set id = #{record.id,jdbcType=BIGINT},
-      `name` = #{record.name,jdbcType=VARCHAR}
+      name = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -151,14 +151,14 @@
     update demo
     <set>
       <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jiawa.wiki.domain.Demo">
     update demo
-    set `name` = #{name,jdbcType=VARCHAR}
+    set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

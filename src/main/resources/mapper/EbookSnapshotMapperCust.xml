@@ -48,7 +48,7 @@
         from
             hhb.ebook_snapshot t1
         where
-            t1.date >= date_sub(now(), interval 1 day)
+            t1.date >= (now() - interval '1 day')::date
         group by
             t1.date
         order by
@@ -63,7 +63,7 @@
         from
             hhb.ebook_snapshot t1
         where
-            t1.date between date_sub(now(), interval 30 day) and date_sub(now(), interval 1 day)
+            t1.date between (now() - interval '30 day')::date and   (now() - interval '1 day')::date
         group by
             t1.date
         order by

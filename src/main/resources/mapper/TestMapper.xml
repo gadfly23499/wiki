@@ -3,7 +3,7 @@
 <mapper namespace="com.jiawa.wiki.mapper.TestMapper" >
 
     <select id="list" resultType="com.jiawa.wiki.domain.Test">
-        select `id`, `name`, `password` from `test`
+        select `id`, name, password from `test`
     </select>
 
 </mapper>

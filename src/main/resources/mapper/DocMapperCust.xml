@@ -3,11 +3,11 @@
 <mapper namespace="com.jiawa.wiki.mapper.DocMapperCust" >
 
     <update id="increaseViewCount">
-        update doc set view_count = view_count + 1 where id = #{id}
+        update hhb.doc set view_count = view_count + 1 where id = #{id}
     </update>
 
     <update id="increaseVoteCount">
-        update doc set vote_count = vote_count + 1 where id = #{id}
+        update hhb.doc set vote_count = vote_count + 1 where id = #{id}
     </update>
 
     <update id="updateEbookInfo">
