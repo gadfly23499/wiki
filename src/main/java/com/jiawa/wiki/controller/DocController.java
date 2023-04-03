@@ -28,6 +28,14 @@ public class DocController {
         return resp;
     }
 
+    @GetMapping("/all")
+    public CommonResp all2() {
+        CommonResp<List<DocQueryResp>> resp = new CommonResp<>();
+        List<DocQueryResp> list = docService.all(0L);
+        resp.setContent(list);
+        return resp;
+    }
+
     @GetMapping("/list")
     public CommonResp list(@Valid DocQueryReq req) {
         CommonResp<PageResp<DocQueryResp>> resp = new CommonResp<>();
